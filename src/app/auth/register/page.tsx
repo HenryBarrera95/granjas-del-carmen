@@ -7,18 +7,24 @@ const RegisterPage = () => {
     console.log(data);
   });
   return (
-    <div>
+    <div className="h-[calc(100vh-7rem)] flex justify-center items-center">
       <h1>RegisterPage</h1>
       <form onSubmit={onSubmit}>
-        <input type="text" {...(register("username"), { required: true })} />
+        <input
+          type="text"
+          {...(register("username"), { required: true })}
+          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
+        />
         <input type="email" {...(register("email"), { required: true })} />
         <input
           type="password"
           {...(register("password"), { required: true })}
+          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
         />
         <input
           type="confirmPassword"
           {...(register("confirmPassword"), { required: true })}
+          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
         />
 
         <button>Register</button>
