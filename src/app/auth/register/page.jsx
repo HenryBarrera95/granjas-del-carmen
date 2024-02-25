@@ -28,6 +28,7 @@ function RegisterPage() {
     });
 
     if (res.ok) {
+      console.log(res.data);
       router.push("/auth/login");
     }
   });
