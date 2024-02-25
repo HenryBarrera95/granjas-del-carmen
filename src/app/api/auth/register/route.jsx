@@ -2,7 +2,7 @@ const { NextResponse } = require("next/server");
 import bcrypt from "bcrypt";
 import db from "@/libs/prisma";
 
-export async function POST(request: any) {
+export async function POST(request) {
   const data = await request.json();
 
   const emailFound = await db.user.findUnique({
