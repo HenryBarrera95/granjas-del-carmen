@@ -33,10 +33,10 @@ model Rabbit {
   id        String   @id @default(uuid())
   name      String
   image     String?
-  birthDate DateTime
-  gender    Gender
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  birthDate DateTime? @default(now())
+  gender    Gender?
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
   createdBy User?    @relation(fields: [userId], references: [id])
   userId    String?
 }
