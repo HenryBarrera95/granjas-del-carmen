@@ -1,28 +1,47 @@
+import React, { useState } from "react";
 import Head from "next/head";
+import GenericModal from "../components/Modals/GenericModal";
+import AlertBox from "../components/Alerts/AlertBox";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div>
       <Head>
         <title>Granjas del Carmen</title>
         <link rel="icon" href="/farm.png" />
       </Head>
-      {/* <main className="hidden">GRANJAS DEL CARMEN</main> */}
-      <div className="bg-amber-800 text-white mx-auto my-10 w-2/3 p-10 rounded-xl">
-        <h1 className="text-center text-2xl font-extrabold mb-2">ALERTA</h1>
-        <p className="text-center">
-          PERSONAS INESCRUPULOSAS ESTAN HACIENDO USO DE NUESTRA INFORMACION PARA
-          ESTAFAR PERSONAS, PIDIENDO SUMAS DE DINERO EN CUENTAS BANCARIAS QUE NO
-          CORRESPONDEN A LAS NUESTRAS Y OFRECIENDO PRODUCTOS QUE NO OFRECEMOS
-          NOSOTROS. <br />
-          <br /> POR FAVOR TENGA PRECAUCION Y PROCURE ESTABLECER CONTACTO
-          DIRECTO CON LAS PERSONAS DE LA GRANJA
-          <br />
-          <br />
-          ACTUALMENTE NOSOTROS NO OFRECEMOS VENTA DE NINGUN ANIMAL NI PRODUCTO
-          YA QUE NOS ENCONTRAMOS EN REESTRUCTURACION.
-        </p>
-      </div>
+      {isModalOpen && (
+        <GenericModal
+          title=""
+          onClose={handleCloseModal}
+          closeOnOutsideClick={true}
+        >
+          <AlertBox />
+        </GenericModal>
+      )}
+      <main className="bg-slate-50 container mx-auto rounded-xl">
+        <h1 className="text-2xl text-center text-orange-900 font-semibold py-3">
+          ACERCA DE NOSOTROS
+        </h1>
+        <section className="flex p-5">
+          <p className="text-xl px-5">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <img className="rounded-3xl"  width={250} src="/ternerocerca-image.jpg" alt="Granjas del Carmen" />
+        </section>
+      </main>
     </div>
   );
 }
