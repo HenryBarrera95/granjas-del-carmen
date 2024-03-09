@@ -1,63 +1,62 @@
-import React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FiMenu } from "react-icons/fi";
 import { useUser } from "@auth0/nextjs-auth0/client";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const { user } = useUser();
-  // const session = true;
-  // console.log(user);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <header className="grid grid-cols-3 bg-orange-900 text-white p-4 items-center w-full">
-      <Link className="flex items-center" href={"/"}>
-        <Image
-          // className="mx-auto"
-          src="/farm.png"
-          width={50}
-          height={50}
-          alt="logo"
-        />
-        <h1 className="text-xl mx-3">GRANJAS DEL CARMEN</h1>
-      </Link>
-      <nav className="col-start-3 mx-auto">
-        <Link
-          className="rounded-lg font-semibold hover:bg-white hover:text-black hover:animate-pulse p-2 mx-1"
-          href={"/"}
-        >
-          Home
+    <header className="text-yellow-700 font-bold p-4 items-center w-full relative flex justify-between">
+      <div className="flex items-center">
+        <Link href={"/"}>
+          <div className="flex items-center p-2 rounded-xl">
+            <Image src="/farm.png" width={50} height={50} alt="logo" />
+            <h1 className="text-xl mx-3">GRANJAS DEL CARMEN</h1>
+          </div>
         </Link>
-        <Link
-          className="rounded-lg font-semibold hover:bg-white hover:text-black hover:animate-pulse p-2 mx-1"
-          href={"/about"}
+      </div>
+      <div>
+        <button
+          className="lg:hidden p-2 bg-white rounded-xl"
+          onClick={() => toggleMenu}
         >
-          Contact
-        </Link>
-        {user ? (
-          <>
-            <Link
-              className="rounded-lg font-semibold hover:bg-white hover:text-black hover:animate-pulse p-2 mx-1"
-              href={"/profile"}
-            >
-              Profile
-            </Link>
-            {user.role === "ADMIN" && (
-              <Link
-                className="rounded-lg font-semibold hover:bg-white hover:text-black hover:animate-pulse p-2 mx-1"
-                href={"/admin"}
-              >
-                Administracion
-              </Link>
+          <FiMenu />
+        </button>
+        <nav
+          className={`absolute top-full left-0 w-full bg-white text-yellow-700 p-4 lg:static lg:bg-transparent lg:p-0 lg:flex${
+            isOpen ? "block" : "hidden"
+          }`}
+        >
+          <ul className="flex flex-col lg:flex-row items-center">
+            <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+              <Link href={"/"}>Home</Link>
+            </li>
+            <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+              <Link href={"/about"}>Contact</Link>
+            </li>
+            {user ? (
+              <>
+                <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+                  <Link href={"/profile"}>Profile</Link>
+                </li>
+                <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+                  <Link href={"/admin/rabbits"}>Administracion</Link>
+                </li>
+              </>
+            ) : (
+              <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+                <Link href={"/api/auth/login"}>LogIn</Link>
+              </li>
             )}
-          </>
-        ) : (
-          <Link
-            className="rounded-lg font-semibold hover:bg-white hover:text-black hover:animate-pulse p-2 mx-1"
-            href={"/api/auth/login"}
-          >
-            LogIn
-          </Link>
-        )}
-      </nav>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };

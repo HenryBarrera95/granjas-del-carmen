@@ -6,6 +6,7 @@ import { getSession } from "@auth0/nextjs-auth0";
 import type { GetServerSideProps } from "next";
 import { CreateRabbitMutation } from "../../utils/grphql/mutations";
 import { Gender, Session } from "@prisma/client";
+import prisma from "../../lib/prisma";
 
 type FormValues = {
   name: string;

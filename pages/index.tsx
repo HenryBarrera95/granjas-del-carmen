@@ -1,7 +1,5 @@
 import Head from "next/head";
 
-
-
 export default function Home() {
   return (
     <div>
@@ -9,7 +7,8 @@ export default function Home() {
         <title>Granjas del Carmen</title>
         <link rel="icon" href="/farm.png" />
       </Head>
-      <div className="bg-red-900 text-white my-10 mx-10 p-10 rounded-xl">
+      {/* <main className="hidden">GRANJAS DEL CARMEN</main> */}
+      <div className="bg-amber-800 text-white mx-auto my-10 w-2/3 p-10 rounded-xl">
         <h1 className="text-center text-2xl font-extrabold mb-2">ALERTA</h1>
         <p className="text-center">
           PERSONAS INESCRUPULOSAS ESTAN HACIENDO USO DE NUESTRA INFORMACION PARA

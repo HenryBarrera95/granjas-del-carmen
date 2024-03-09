@@ -1,5 +1,6 @@
 import "../styles/tailwind.css";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import Layout from "../components/Layout";
 import { ApolloProvider } from "@apollo/client";
 import type { AppProps } from "next/app";
