@@ -3,8 +3,8 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <footer
+      className="p-2 md:p-4"
       style={{
-        padding: "0.5rem",
         backgroundColor: "#f2f2f2",
         position: "fixed",
         bottom: 0,
@@ -51,8 +51,10 @@ const Footer: React.FC = () => {
       <div>
         {/* Aquí puedes agregar el texto de copyright y el número de contacto */}
         {/* Por ejemplo: */}
-        <p>&copy; 2022 Granjas del Carmen. Todos los derechos reservados.</p>
-        <p>Teléfono de contacto: +57 314 387 7611</p>
+        <p className="text-sm">Teléfono de contacto: +57 314 387 7611</p>
+        <p className="text-xs">
+          &copy; 2022 Granjas del Carmen. Todos los derechos reservados.
+        </p>
       </div>
     </footer>
   );

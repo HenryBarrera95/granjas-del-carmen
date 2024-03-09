@@ -26,20 +26,32 @@ export default function Home() {
         </GenericModal>
       )}
       <main className="bg-slate-50 container mx-auto rounded-xl">
-        <h1 className="text-2xl text-center text-orange-900 font-semibold py-3">
-          ACERCA DE NOSOTROS
+        <h1 className="text-2xl text-center text-orange-900 font-semibold pt-3">
+          ¡Bienvenido a Granjas del Carmen!
         </h1>
-        <section className="flex p-5">
-          <p className="text-xl px-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+        <section className="md:flex p-3 text-center">
+          <p className="text-lg px-5">
+            En Granjas del Carmen, nos enorgullece ofrecer productos lácteos,
+            avícolas y cunícolas de la más alta calidad. Desde nuestros inicios,
+            nos hemos dedicado a cultivar un ambiente donde la tradición, la
+            pasión por la agricultura y el compromiso con la excelencia se
+            entrelazan para brindarte alimentos frescos y nutritivos.
+            <br />
+            <br />
+            Fundada con la visión de proporcionar a las familias opciones
+            saludables y deliciosas, Granjas del Carmen ha crecido hasta
+            convertirse en un referente en la producción y comercialización de
+            productos provenientes de nuestras granjas. Nos destacamos por
+            nuestro compromiso con prácticas agrícolas sostenibles y éticas,
+            asegurando que cada producto que llega a tu mesa cumpla con los más
+            altos estándares de calidad.
           </p>
-          <img className="rounded-3xl"  width={250} src="/ternerocerca-image.jpg" alt="Granjas del Carmen" />
+          <img
+            className="rounded-3xl mx-auto m-2"
+            width={250}
+            src="/ternerocerca-image.jpg"
+            alt="Granjas del Carmen"
+          />
         </section>
       </main>
     </div>
