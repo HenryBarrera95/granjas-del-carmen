@@ -7,13 +7,13 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import apolloClient from "../lib/apollo";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const gaId = process.env.GAID || "";
+  // const gaId = process.env.GAID || "";
 
   return (
     <UserProvider>
       <ApolloProvider client={apolloClient}>
         {/* importar el gaid desde .env */}
-        <GoogleAnalytics gaId={gaId} />
+        <GoogleAnalytics gaId="G-FTHN93QES8" />
         <Layout>
           <Component {...pageProps} />
         </Layout>
