@@ -54,6 +54,10 @@ builder.mutationField("createRabbit", (t) =>
         | null
         | undefined;
 
+      if (!validatedGender) {
+        throw new Error("Gender is required");
+      }
+
       return prisma.rabbit.create({
         ...query,
         data: {
