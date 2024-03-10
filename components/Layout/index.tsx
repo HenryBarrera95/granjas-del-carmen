@@ -9,8 +9,9 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <div className="font-poppins">
       <Header />
+      <div className="mt-24"></div>
       <Analytics />
       {children}
       <Footer />

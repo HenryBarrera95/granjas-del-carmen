@@ -3,25 +3,41 @@ import { Rabbit } from "@prisma/client";
 
 const AnimalsTable = ({
   data,
-  error,
-  loading,
+  error = null,
+  loading = false,
 }: {
   data: any;
   error: any;
   loading: any;
-}) => (
-  <div className="items-center mx-auto grid grid-flow-col">
-    {!error &&
-      !loading &&
-      data.Rabbits.map((rabbit: Rabbit) => (
-        <li key={rabbit.id} className="list-none rounded-lg bg-white m-5">
-          <img className="shadow-sm w-96" src={rabbit.image ?? ""} />
-          <p className="text-xl font-bold">{rabbit.name}</p>
-          <p className="text-md">{rabbit.gender}</p>
-          <p className="text-gray-600">{rabbit.id}</p>
-        </li>
-      ))}
-  </div>
-);
+}) => {
+  return (
+    <div className="items-center mx-auto">
+      {!error && !loading && (
+        <table className="table-auto mx-auto border text-center">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Image</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((rabbit: Rabbit) => (
+              <tr key={rabbit.id}>
+                <td>{rabbit.id}</td>
+                <td>{rabbit.name}</td>
+                <td className="px-4">{rabbit.gender}</td>
+                <td>
+                  <img className="shadow-sm w-40" src={rabbit.image ?? ""} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+};
 
 export default AnimalsTable;

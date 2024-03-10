@@ -33,7 +33,7 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className="text-yellow-700 font-bold p-4 items-center w-full relative flex justify-between">
+    <header className="fixed bg-white top-0 z-50 text-yellow-700 font-bold p-4 items-center w-full flex justify-between">
       <div className="flex items-center">
         <Link href={"/"}>
           <div className="flex items-center p-2 rounded-xl">
