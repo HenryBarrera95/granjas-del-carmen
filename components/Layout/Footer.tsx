@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
       className="p-2 md:p-4"
       style={{
         backgroundColor: "#f2f2f2",
-        position: "fixed",
+        // position: "fixed",
         bottom: 0,
         left: 0,
         width: "100%",
