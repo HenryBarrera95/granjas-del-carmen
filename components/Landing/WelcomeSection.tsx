@@ -4,7 +4,7 @@ const WelcomeSection = () => {
       <h1 className="text-2xl text-center text-orange-900 font-semibold pt-3">
         ¡Bienvenido a Granjas del Carmen!
       </h1>
-      <section className="md:flex p-3 text-center">
+      <section className="md:flex p-3 text-justify">
         <p className="text-lg px-5">
           En Granjas del Carmen, nos enorgullece ofrecer productos lácteos,
           avícolas y cunícolas de la más alta calidad. Desde nuestros inicios,
