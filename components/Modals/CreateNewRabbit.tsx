@@ -39,6 +39,9 @@ const CreateNewRabbit = ({ handleCloseModal }: CreateNewRabbitProps) => {
       gender,
       birthDate: new Date(birthDate),
     };
+
+    // console.log(variables);
+
     try {
       toast.promise(createRabbit({ variables }), {
         loading: "Creating new Rabbit..",
@@ -53,7 +56,10 @@ const CreateNewRabbit = ({ handleCloseModal }: CreateNewRabbitProps) => {
   return (
     <GenericModal
       title="Create a new rabbit"
-      onClose={() => handleCloseModal()}
+      onClose={() => {
+        handleCloseModal();
+        handleCloseModal();
+      }}
       closeOnOutsideClick={false}
     >
       <div className="container mx-auto max-w-md py-12">
