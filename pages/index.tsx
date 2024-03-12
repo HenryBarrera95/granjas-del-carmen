@@ -16,9 +16,9 @@ export default function Home() {
     <div className="font-poppins">
       <Head>
         <title>Granjas del Carmen</title>
-        <link rel="icon" href="/farm.png" />
+        <link rel="icon" href="/Negativo BN.png" />
       </Head>
-      {isModalOpen && (
+      {/* {isModalOpen && (
         <GenericModal
           title=""
           onClose={handleCloseModal}
@@ -26,7 +26,7 @@ export default function Home() {
         >
           <AlertBox />
         </GenericModal>
-      )}
+      )} */}
       <WelcomeSection />
       <ContentSection />
     </div>

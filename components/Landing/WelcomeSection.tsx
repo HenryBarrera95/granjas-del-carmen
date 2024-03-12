@@ -1,6 +1,6 @@
 const WelcomeSection = () => {
   return (
-    <section className="container mx-auto rounded-xl">
+    <section className="container mx-auto text-primary bg-primaryBg rounded-xl">
       <h1 className="text-2xl text-center text-orange-900 font-semibold pt-3">
         ¡Bienvenido a Granjas del Carmen!
       </h1>

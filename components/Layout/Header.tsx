@@ -33,12 +33,12 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed bg-white top-0 z-50 text-yellow-700 font-bold p-4 items-center w-full flex justify-between">
+    <header className="fixed bg-white top-0 z-50 text-yellow-700 px-3 items-center w-full flex justify-between">
       <div className="flex items-center">
         <Link href={"/"}>
-          <div className="flex items-center p-2 rounded-xl">
-            <Image src="/farm.png" width={50} height={50} alt="logo" />
-            <h1 className="text-xl mx-3">GRANJAS DEL CARMEN</h1>
+          <div className="p-3">
+            <Image src="/Positivo.png" width={80} height={80} alt="logo" />
+            {/* <h1 className="text-xl mx-3">GRANJAS DEL CARMEN</h1> */}
           </div>
         </Link>
       </div>
@@ -51,34 +51,38 @@ const Header = () => {
         </button>
         <nav
           ref={menuRef}
-          className={`absolute top-full left-0 w-full bg-white text-yellow-700 p-4 lg:static lg:bg-transparent lg:p-0 lg:flex ${
+          className={`absolute top-full left-0 w-full bg-white text-primary p-4 lg:static lg:bg-transparent lg:p-0 lg:flex ${
             isOpen ? "block" : "hidden"
           }`}
         >
           <ul className="flex flex-col lg:flex-row items-center">
-            <li className="px-3 hover:bg-yellow-700 hover:text-white ">
-              <Link href={"/"}>Home</Link>
-            </li>
-            <li className="px-3 hover:bg-yellow-700 hover:text-white ">
-              <Link href={"/about"}>Contact</Link>
-            </li>
+            <Link href={"/"}>
+              <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
+                Home
+              </li>
+            </Link>
+            <Link href={"/about"}>
+              <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
+                Contact
+              </li>
+            </Link>
             {isLoading && (
               // crear un spin de carga
-              <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+              <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
                 Loading...
               </li>
             )}
             {user ? (
               <>
-                <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+                <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
                   <Link href={"/profile"}>Profile</Link>
                 </li>
-                <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+                <li className="p-3 rounded hover:bg-primary hover:text-primaryBg ">
                   <Link href={"/admin/rabbits"}>Administracion</Link>
                 </li>
               </>
             ) : (
-              <li className="px-3 hover:bg-yellow-700 hover:text-white ">
+              <li className="p-3 rounded hover:bg-primary hover:text-primaryBg ">
                 <Link href={"/api/auth/login"}>LogIn</Link>
               </li>
             )}
