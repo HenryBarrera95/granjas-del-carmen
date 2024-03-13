@@ -58,24 +58,23 @@ const Header = () => {
           <ul className="flex flex-col lg:flex-row items-center">
             <Link href={"/"}>
               <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
-                Home
+                Inicio
               </li>
             </Link>
             <Link href={"/about"}>
               <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
-                Contact
+                Contacto
               </li>
             </Link>
-            {isLoading && (
+            {isLoading ? (
               // crear un spin de carga
               <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
-                Loading...
+                Cargando...
               </li>
-            )}
-            {user ? (
+            ) : user ? (
               <>
                 <li className="p-3 rounded hover:bg-primary hover:text-primaryBg">
-                  <Link href={"/profile"}>Profile</Link>
+                  <Link href={"/profile"}>Mi Perfil</Link>
                 </li>
                 <li className="p-3 rounded hover:bg-primary hover:text-primaryBg ">
                   <Link href={"/admin/rabbits"}>Administracion</Link>
@@ -83,7 +82,7 @@ const Header = () => {
               </>
             ) : (
               <li className="p-3 rounded hover:bg-primary hover:text-primaryBg ">
-                <Link href={"/api/auth/login"}>LogIn</Link>
+                <Link href={"/api/auth/login"}>Iniciar Sesion</Link>
               </li>
             )}
           </ul>

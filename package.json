@@ -16,6 +16,7 @@
     "@pothos/plugin-prisma": "^3.65.0",
     "@prisma/client": "^5.10.2",
     "@vercel/analytics": "^1.2.2",
+    "backblaze-b2": "^1.7.0",
     "graphql": "^16.8.1",
     "graphql-scalars": "^1.22.5",
     "graphql-yoga": "^5.1.1",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
+    "@types/backblaze-b2": "^1.5.6",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "autoprefixer": "^10.4.13",

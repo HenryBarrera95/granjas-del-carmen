@@ -45,13 +45,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 };
 
 const profile = ({ user }: { user: any }) => {
-  console.log(user);
+  // console.log(user);
   return (
-    <div className="text-center p-5">
+    <div className="text-center p-5 ">
       <img
         src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
         className="mx-auto w-32 rounded-full m-10"
         alt="Avatar"
+        // onClick={() => (window.location.href = "api/auth/logout")}
       />
       <h1 className="text-3xl">Profile</h1>
       <p>{user.name}</p>
@@ -59,7 +60,7 @@ const profile = ({ user }: { user: any }) => {
       <p>{user.role}</p>
       <button
         // className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-black"
-        className="bg-amber-600 hover:bg-amber-900 text-white md:text-xl p-3 m-5 rounded"
+        className="bg-primary hover:bg-amber-900 text-primaryBg md:text-xl p-2 m-5 rounded"
         onClick={() => (window.location.href = "api/auth/logout")}
       >
         Logout

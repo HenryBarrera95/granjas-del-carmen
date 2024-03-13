@@ -59,7 +59,7 @@ const Admin = ({ rabbits }: { rabbits: Rabbit[] }) => {
       <div className="flex justify-end m-3">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded"
+          className="hover:bg-secondary hover:text-white bg-secondaryBg text-secondary  font-bold py-2 px-4 rounded"
         >
           Add new Rabbit
         </button>

@@ -1,10 +1,13 @@
 import { useMutation } from "@apollo/client";
+import { useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { Gender } from "@prisma/client";
 
 import GenericModal from "./GenericModal";
 import { CreateRabbitMutation } from "../../utils/grphql/mutations";
+import UploadImage from "../UploadImage";
+import { uploadFile } from "../../pages/api/storage-b2/images";
 
 type FormValues = {
   name: string;
@@ -25,12 +28,19 @@ const CreateNewRabbit = ({ handleCloseModal }: CreateNewRabbitProps) => {
     formState: { errors },
     reset,
   } = useForm<FormValues>();
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+
+  console.log(selectedFile, uploadedFile);
 
   const [createRabbit, { loading, error }] = useMutation(CreateRabbitMutation, {
     onCompleted: () => reset(),
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    if (selectedFile) {
+      uploadFile(selectedFile);
+    }
     const { name, image, userId, gender, birthDate } = data;
     const variables = {
       name,
@@ -58,19 +68,18 @@ const CreateNewRabbit = ({ handleCloseModal }: CreateNewRabbitProps) => {
       title="Create a new rabbit"
       onClose={() => {
         handleCloseModal();
-        handleCloseModal();
       }}
       closeOnOutsideClick={false}
     >
-      <div className="container mx-auto max-w-md py-12">
+      <div className="mx-auto max-w-md">
         <Toaster />
-        <h1 className="text-3xl font-medium my-5">Create a new rabbit</h1>
+        {/* <h1 className="text-3xl font-medium my-5">Create a new rabbit</h1> */}
         <form
           className="grid grid-cols-1 gap-y-6 shadow-lg p-8 rounded-lg"
           onSubmit={handleSubmit(onSubmit)}
         >
           <label className="block">
-            <span className="text-gray-700">Title</span>
+            <span className="text-primary">Name</span>
             <input
               placeholder="Name"
               {...register("name", { required: true })}
@@ -80,16 +89,10 @@ const CreateNewRabbit = ({ handleCloseModal }: CreateNewRabbitProps) => {
             />
           </label>
           <label className="block">
-            <span className="text-gray-700">Image</span>
-            <input
-              placeholder="Image URL"
-              {...register("image", { required: true })}
-              defaultValue={"https://via.placeholder.com/150"}
-              name="image"
-              type="text"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-            />
+            <span className="text-gray-700 block">Foto</span>
+            <UploadImage />
           </label>
+
           <label className="block">
             <span className="text-gray-700">Gender</span>
             <select
@@ -115,7 +118,7 @@ const CreateNewRabbit = ({ handleCloseModal }: CreateNewRabbitProps) => {
           <button
             disabled={loading}
             type="submit"
-            className="my-4 capitalize bg-blue-500 text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600"
+            className="my-4 capitalize bg-primary text-white font-medium py-2 px-4 rounded-md hover:bg-blue-600"
           >
             {loading ? (
               <span className="flex items-center justify-center">
