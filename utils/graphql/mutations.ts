@@ -8,7 +8,7 @@ import { gql } from "@apollo/client";
 // birthDate
 // gender
 
-export const CreateRabbitMutation = gql`
+export const CREATE_RABBIT = gql`
   mutation CreateRabbit(
     $name: String!
     $image: String!

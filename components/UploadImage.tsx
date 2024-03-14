@@ -1,32 +1,43 @@
 import React, { useState } from "react";
-import { uploadFile } from "../pages/api/storage-b2/images";
 
-const UploadImage: React.FC = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+type UploadFileProps = {
+  onFileSelect: (file: File | null) => void;
+};
+
+const UploadFile = ({ onFileSelect }: UploadFileProps) => {
+  const [file, setFile] = useState<File | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0] ?? null;
-    setSelectedFile(file);
+    const selectedFile = event.target.files?.[0] || null;
+    onFileSelect(selectedFile);
   };
 
   const handleUpload = async () => {
-    if (selectedFile) {
-      console.log("Uploading", selectedFile);
-      try {
-        const response = await uploadFile(selectedFile);
-        console.log("File uploaded successfully:", response);
-      } catch (err) {
-        console.error("Error uploading file:", err);
+    const formData = new FormData();
+    if (file) {
+      formData.append("file", file);
+    } else {
+      formData.append("file", "");
+    }
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Error uploading file");
       }
+
+      const data = await response.json();
+      console.log("File uploaded:", data);
+    } catch (err) {
+      console.error("Error:", err);
     }
   };
 
-  return (
-    <div>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Upload</button>
-    </div>
-  );
+  return <input type="file" onChange={handleFileChange} />;
 };
 
-export default UploadImage;
+export default UploadFile;
