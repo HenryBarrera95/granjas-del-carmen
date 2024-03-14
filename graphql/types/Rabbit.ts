@@ -1,4 +1,4 @@
-import { Gender } from "@prisma/client";
+import { Gender } from "../../prisma/generated/client";
 import { builder } from "../builder";
 import { DateTimeResolver } from "graphql-scalars";
 
