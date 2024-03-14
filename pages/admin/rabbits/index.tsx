@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { GetServerSideProps } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
-import { Rabbit } from "@prisma/client";
+import { Rabbit } from "../../../prisma/generated/client";
 import prisma from "../../../lib/prisma";
 // import AnimalsTable from "../../../components/Tables/AnimalsTable";
 import CreateNewRabbit from "../../../components/Modals/CreateNewRabbit";

@@ -1,5 +1,5 @@
 import React from "react";
-import { Rabbit } from "@prisma/client";
+import { Rabbit } from "../../prisma/generated/client";
 
 const AnimalsTable = ({
   data,
