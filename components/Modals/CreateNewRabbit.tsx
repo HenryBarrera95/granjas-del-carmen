@@ -28,7 +28,7 @@ const CreateNewRabbit = ({ handleCloseModal }: { handleCloseModal: any }) => {
 
     // Obtener la URL del archivo subido
     const response = await axios.get(
-      `https://granjasdelcarmen.com/pages/api/storage-b2/image/${selectedFile.name}`
+      `https://granjasdelcarmen.com/pages/api/storage-b2/images/${selectedFile.name}`
     );
     const fileUrl = response.data.authorizationToken;
 
