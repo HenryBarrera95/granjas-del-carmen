@@ -3,7 +3,7 @@ import type { GetServerSideProps } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
 import { Rabbit } from "../../../prisma/generated/client";
 import prisma from "../../../lib/prisma";
-// import AnimalsTable from "../../../components/Tables/AnimalsTable";
+import ParentsAnimalsTable from "../../../components/Tables/ParentsAnimalsTable";
 import CreateNewRabbit from "../../../components/Modals/CreateNewRabbit";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
@@ -55,9 +55,20 @@ const Admin = ({ rabbits }: { rabbits: Rabbit[] }) => {
   };
 
   return (
-    <>
+    <div className="container mx-auto bg-primaryBg rounded-xl">
+      <div className="flex justify-end">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="bg-secondary text-secondaryBg p-2 rounded-md m-3 hover:bg-secondaryBg hover:text-secondary transition duration-300"
+        >
+          Add new rabbit
+        </button>
+      </div>
+      <ParentsAnimalsTable data={rabbits} error={null} loading={false} />
+
       {isModalOpen && <CreateNewRabbit handleCloseModal={handleCloseModal} />}
-      {/* Rest of your component */}
-    </>
+    </div>
   );
 };
+
+export default Admin;
