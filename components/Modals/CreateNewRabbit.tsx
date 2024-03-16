@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
-import UploadFile from "../UploadImage";
+// import UploadFile from "../UploadImage";
 import axios from "axios";
 import GenericModal from "./GenericModal";
 import { CREATE_RABBIT } from "../../utils/graphql/mutations";
@@ -24,7 +24,7 @@ const CreateNewRabbit = ({ handleCloseModal }: { handleCloseModal: any }) => {
   console.log(selectedFile, "selectedFile");
 
   const onSubmit = async (data: FormData) => {
-    console.log(data);
+    console.log("data onsubmit: ", data);
     if (!selectedFile) {
       return;
     }
@@ -34,16 +34,27 @@ const CreateNewRabbit = ({ handleCloseModal }: { handleCloseModal: any }) => {
     console.log(formData, "formData");
 
     formData.append("file", selectedFile);
+
     await axios.post(
-      "https://granjasdelcarmen.com/pages/api/storage-b2/images/upload",
+      "https://granjasdelcarmen.com/pages/api/imagesUpload",
       formData
     );
 
-    // Obtener la URL del archivo subido
+    // Obtener la URL del archivo subido debo enviarle el name
     const response = await axios.get(
-      `https://granjasdelcarmen.com/pages/api/storage-b2/images/${selectedFile.name}`
+      `https://granjasdelcarmen.com/pages/api/imagesUpload/${selectedFile.name}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        params: {
+          name: selectedFile.name,
+        },
+      }
     );
+
     const fileUrl = response.data.authorizationToken;
+    console.log("fileUrl", fileUrl);
 
     createRabbit({
       variables: { ...data, image: fileUrl, userId: "yourUserId" },
