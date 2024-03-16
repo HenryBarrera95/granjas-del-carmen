@@ -4,33 +4,12 @@ const GenericModal = ({
   children,
   title,
   onClose,
-  closeOnOutsideClick,
 }: {
   children: React.ReactNode;
   title: string;
   onClose: () => void;
-  closeOnOutsideClick: boolean;
 }) => {
   const modalRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        (modalRef.current as HTMLElement).contains(event.target as Node)
-      ) {
-        onClose();
-      }
-    };
-
-    if (closeOnOutsideClick) {
-      window.addEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      window.removeEventListener("click", handleClickOutside);
-    };
-  }, [closeOnOutsideClick, onClose]);
 
   return /*#__PURE__*/ React.createElement(
     "div",
