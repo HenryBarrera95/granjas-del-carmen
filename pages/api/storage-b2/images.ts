@@ -41,6 +41,10 @@ app.get("/bucket", async (_req: Request, res: Response) => {
   }
 });
 
+app.get("/upload", async (req: Request, res: Response) => {
+  res.json({ success: true, message: "Upload endpoint GET" });
+});
+
 app.post(
   "/upload",
   upload.single("file"),
@@ -58,7 +62,7 @@ app.post(
         uploadUrl,
         uploadAuthToken: authorizationToken,
         fileName,
-        data: fileData ?? Buffer.from(''),
+        data: fileData ?? Buffer.from(""),
       });
       res.json({ success: true });
     } catch (err) {
