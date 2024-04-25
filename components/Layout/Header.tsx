@@ -188,7 +188,7 @@ const Header = () => {
           ) : (
             <Link
               href={"/api/auth/login"}
-              className="p-3 rounded hover:bg-primary hover:text-primaryBg block"
+              className="font-medium hover:underline underline-offset-4 block"
             >
               Iniciar Sesion
             </Link>
