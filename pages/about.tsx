@@ -22,7 +22,7 @@ const about = () => {
                       className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                       htmlFor="name"
                     >
-                      Name
+                      Nombre
                     </label>
                   </div>
                   <div className="relative mb-6">
@@ -36,7 +36,7 @@ const about = () => {
                       className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                       htmlFor="email"
                     >
-                      Email address
+                      Email
                     </label>
                   </div>
                   <div className="relative mb-6">
@@ -50,14 +50,14 @@ const about = () => {
                       htmlFor="message"
                       className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                     >
-                      Message
+                      Mensaje
                     </label>
                   </div>
                   <button
                     type="button"
                     className="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0"
                   >
-                    Send
+                    Enviar
                   </button>
                 </form>
               </div>
@@ -90,9 +90,7 @@ const about = () => {
                         {/* <p className="text-neutral-500 dark:text-neutral-200">
                           support@example.com
                         </p> */}
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          +57 314 387 7611
-                        </p>
+                        <p className="text-white">+57 314 387 7611</p>
                       </div>
                     </div>
                   </div>
@@ -117,15 +115,11 @@ const about = () => {
                         </div>
                       </div>
                       <div className="ml-6 grow">
-                        <p className="mb-2 font-bold dark:text-white">
-                          Sales questions
-                        </p>
+                        <p className="mb-2 font-bold text-white">Ventas</p>
                         {/* <p className="text-neutral-500 dark:text-neutral-200">
                           sales@example.com
                         </p> */}
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          +57 314 387 7611
-                        </p>
+                        <p className="text-white">+57 314 387 7611</p>
                       </div>
                     </div>
                   </div>
@@ -151,9 +145,7 @@ const about = () => {
                       </div>
                       <div className="ml-6 grow">
                         <p className="mb-2 font-bold dark:text-white">Email</p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          granjasdelcarmen@gmail.com
-                        </p>
+                        <p className="text-white">granjasdelcarmen@gmail.com</p>
                         {/* <p className="text-neutral-500 dark:text-neutral-200">
                           +1 234-567-89
                         </p> */}
@@ -162,7 +154,7 @@ const about = () => {
                   </div>
                   <div className="w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:w-full lg:px-6 xl:mb-12 xl:w-6/12">
                     <div className="align-start flex">
-                      <div className="shrink-0">
+                      {/* <div className="shrink-0">
                         <div className="inline-block rounded-md p-4 text-primaryBg">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -181,16 +173,12 @@ const about = () => {
                         </div>
                       </div>
                       <div className="ml-6 grow">
-                        <p className="mb-2 font-bold dark:text-white">
-                          Bug report
+                        <p className="mb-2 font-bold text-white">
+                          Reporte de errores
                         </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          bugs@example.com
-                        </p>
-                        <p className="text-neutral-500 dark:text-neutral-200">
-                          +57 314 387 7611
-                        </p>
-                      </div>
+                        <p className="text-white text-sm">granjasdelcarmen@gmail.com</p>
+                        <p className="text-white">+57 314 387 7611</p>
+                      </div> */}
                     </div>
                   </div>
                 </div>

@@ -10,6 +10,7 @@ module.exports = {
       roboto: ["Roboto"],
     },
     colors: {
+      mainbg: "#f5f5f5",
       primary: "#572408",
       primaryBg: "#F4EBE0",
       primaryBgLigth: "rgba(87, 36, 8, 0.8)",
