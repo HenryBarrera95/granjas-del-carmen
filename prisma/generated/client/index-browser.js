@@ -122,6 +122,13 @@ exports.Prisma.AccountScalarFieldEnum = {
   session_state: 'session_state'
 };
 
+exports.Prisma.ClientScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.RabbitScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -195,6 +202,7 @@ exports.Role = exports.$Enums.Role = {
 
 exports.Prisma.ModelName = {
   Account: 'Account',
+  Client: 'Client',
   Rabbit: 'Rabbit',
   Session: 'Session',
   Shopping: 'Shopping',

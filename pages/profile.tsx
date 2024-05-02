@@ -2,6 +2,7 @@ import React from "react";
 import prisma from "../lib/prisma";
 import type { GetServerSideProps } from "next";
 import { getSession } from "@auth0/nextjs-auth0";
+import Image from "next/image";
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const session = await getSession(req, res);
@@ -48,7 +49,7 @@ const profile = ({ user }: { user: any }) => {
   // console.log(user);
   return (
     <div className="text-center p-5 ">
-      <img
+      <Image
         src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
         className="mx-auto w-32 rounded-full m-10"
         alt="Avatar"

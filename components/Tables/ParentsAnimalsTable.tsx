@@ -1,5 +1,6 @@
 import React from "react";
 import { Rabbit } from "../../prisma/generated/client";
+import Image from "next/image";
 
 const tableHeaders = [
   { name: "Foto", key: "image" },
@@ -37,7 +38,8 @@ const ParentsAnimalsTable = ({
                 {tableHeaders.map((header) => (
                   <td key={header.key} className="px-2">
                     {header.key === "image" ? (
-                      <img
+                      <Image
+                        alt={`${header.key}`}
                         className="w-40 my-2"
                         src={String(rabbit[header.key as keyof Rabbit]) ?? ""}
                       />

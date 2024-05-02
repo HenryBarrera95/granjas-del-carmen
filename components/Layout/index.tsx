@@ -15,7 +15,6 @@ const Layout: React.FC<Props> = ({ children }) => {
       <div className="mt-14"></div>
       <Analytics />
       {children}
-      <div className="py-12"></div>
       <Footer />
     </div>
   );

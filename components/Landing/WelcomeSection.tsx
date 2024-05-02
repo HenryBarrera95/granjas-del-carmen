@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const WelcomeSection = () => {
   return (
     <section className="container mx-auto text-primary bg-primaryBg rounded-xl">
@@ -21,7 +23,7 @@ const WelcomeSection = () => {
           que cada producto que llega a tu mesa cumpla con los más altos
           estándares de calidad.
         </p>
-        <img
+        <Image
           className="rounded-3xl mx-auto m-2"
           width={250}
           src="/ternerocerca-image.jpg"
